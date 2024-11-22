@@ -98,13 +98,6 @@ window.addEventListener('load', () => {
     });
 });
 
-document.addEventListener('click', () => {
-    const audio = document.querySelector('audio');
-    if (audio.muted) {
-        audio.muted = false; // Unmute on interaction
-    }
-});
-
 
 /*--------------------
 Listeners
