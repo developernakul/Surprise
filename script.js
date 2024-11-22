@@ -98,10 +98,11 @@ window.addEventListener('load', () => {
     });
 });
 
-  playButton.addEventListener('click', () => {
-      audio.play();
-      playButton.style.display = 'none'; // Hide the button once clicked
-  });
+document.addEventListener('click', () => {
+    const audio = document.querySelector('audio');
+    if (audio.muted) {
+        audio.muted = false; // Unmute on interaction
+    }
 });
 
 
