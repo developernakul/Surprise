@@ -82,14 +82,21 @@ const handleMouseUp = () => {
   isDown = false
 }
 window.addEventListener('load', () => {
-  const audio = document.querySelector('audio');
-  const playButton = document.getElementById('playButton');
-  if (audio) {
-      audio.play().catch(error => {
-          console.log('Autoplay blocked:', error);
-          playButton.style.display = 'block'; // Show the button if autoplay fails
-      });
-  }
+    const audio = document.querySelector('audio');
+    const playButton = document.getElementById('playButton');
+
+    // Attempt to autoplay
+    audio.play().catch(error => {
+        console.log('Autoplay blocked:', error);
+        playButton.style.display = 'block'; // Show play button if autoplay fails
+    });
+
+    // Allow user to manually play
+    playButton.addEventListener('click', () => {
+        audio.play();
+        playButton.style.display = 'none'; // Hide play button after playing
+    });
+});
 
   playButton.addEventListener('click', () => {
       audio.play();
